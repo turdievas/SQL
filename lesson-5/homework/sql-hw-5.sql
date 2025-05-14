@@ -1,5 +1,4 @@
-create database sql_hw_5
-use sql_hw_5
+
 --Easy Level
 CREATE TABLE Products (
     ProductID INT PRIMARY KEY,
@@ -196,9 +195,9 @@ select ProductName from Products
 UNION
 select  ProductName from Products_Discounted
 --9.Write a query that returns the difference between the Products and Products_Discounted tables using EXCEPT.
-select * from Products
+select ProductName from Products
 EXCEPT
-select  * from Products_Discounted
+select  ProductName from Products_Discounted
 --10.Create a conditional column using IIF that shows 'Expensive' if the Price is greater than 1000, and 'Affordable' if less, from Products table.
 SELECT IIF(Price >1000, 'Expensive', 'Affordable' ) from Products 
 
@@ -369,7 +368,7 @@ INSERT INTO Orders VALUES
 (37, 37, 38, '2021-06-06', 2, 110.00),
 (38, 38, 39, '2025-02-01', 1, 40.00),
 (39, 39, 40, '2023-11-26', 3, 120.00),
-(40, 40, 1, '2024-03-09', 1, 1200.00);
+(40, 40, 1, '2024-03-09', 1, 1200.00); 
 --14.Use EXCEPT to find customers' ID who have placed orders but do not have a corresponding record in the Sales table.
 select customerID from orders
 EXCEPT
@@ -379,5 +378,4 @@ select customerid, quantity,
 case when Quantity between 2 and 3 then '3%'
   when Quantity<=3 then '5%'
  else '7%' end as Discount
-
 from orders
